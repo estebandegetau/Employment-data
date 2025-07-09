@@ -1,0 +1,188 @@
+---
+title: "Review historic data"
+format: html
+---
+
+
+```{r}
+rm(list = ls())
+gc()
+
+pacman::p_load(tidyverse, here, arrow)
+```
+
+
+```{r}
+sheets <- open_dataset(
+    here::here("data/sheets"),
+    format = "parquet"
+)
+```
+
+## Trabajadores
+
+```{r}
+#| label: fig-workers-mod
+#| fig-cap: Trabajadores
+#| fig-subcap:
+#|  - "Nacional por modalidad"
+#|  - "10.1 por delegación"
+#| layout-ncol: 1
+
+
+a <- sheets |>
+    filter(
+        series == "Asegurados trabajadores",
+        level == "Delegación",
+        disaggregation == "Modalidad"
+    )  |>
+    collect()
+
+
+a |>
+    filter(delegacion == "Nacional") |>
+    ggplot(aes(date, value, color = sheet_name)) +
+    geom_line() +
+    facet_wrap(~sheet_name, scales = "free_y") +
+    theme(legend.position = "none")
+
+a |>
+    filter(str_detect(sheet_name, "10.1")) |>
+    ggplot(aes(date, value, group = delegacion)) +
+    geom_line() +
+    facet_wrap(~delegacion, scales = "free_y")
+
+
+```
+
+
+```{r}
+#| label: fig-workers-sector
+#| fig-cap: Trabajadores por sector económico
+#| fig-subcap:
+#|  - "Nacional"
+#|  - "Comercio por delegación"
+#| layout-ncol: 1
+
+a <- sheets |>
+    filter(
+        series == "Asegurados trabajadores",
+        level == "Delegación",
+        disaggregation == "Sector económico"
+    )  |>
+    collect()
+
+a |>
+    filter(delegacion == "Nacional") |>
+    ggplot(aes(date, value, color = sheet_name)) +
+    geom_line() +
+    facet_wrap(~sheet_name, scales = "free_y") +
+    theme(legend.position = "none")
+
+a |>
+    filter(str_detect(sheet_name, "comercio")) |>
+    ggplot(aes(date, value, group = delegacion)) +
+    geom_line() +
+    facet_wrap(~delegacion, scales = "free_y")
+
+```
+
+## Patrones
+
+
+```{r}
+#| label: fig-firms-mod
+#| fig-cap: Patrones por modalidad
+#| fig-subcap: 
+#|  - "Nacional por modalidad"
+#|  - "Modalidad 10 por delegación"
+#| layout-ncol: 1
+
+a <- sheets |>
+    filter(
+        series == "Patrones",
+        level == "Delegación",
+        disaggregation == "Modalidad"
+    )  |>
+    collect()
+
+
+a |>
+    filter(delegacion == "Nacional") |>
+    ggplot(aes(date, value, color = sheet_name)) +
+    geom_line() +
+    facet_wrap(~sheet_name, scales = "free_y") +
+    theme(legend.position = "none")
+
+a |>
+    filter(str_detect(sheet_name, "10")) |>
+    ggplot(aes(date, value, group = delegacion)) +
+    geom_line() +
+    facet_wrap(~delegacion, scales = "free_y")
+```
+
+
+```{r}
+#| label: fig-firms-size
+#| fig-cap: Patrones por tamaño
+#| fig-subcap:
+#|  - "Nacional"
+#|  - "Comercio por delegación"
+#| layout-ncol: 1
+
+a <- sheets |>
+    filter(
+        series == "Patrones",
+        level == "Delegación",
+        disaggregation == "Rango de trabajadores"
+    )  |>
+    collect()
+
+a |>
+    filter(delegacion == "Nacional") |>
+    ggplot(aes(date, value, color = sheet_name)) +
+    geom_line() +
+    facet_wrap(~sheet_name, scales = "free_y") +
+    theme(legend.position = "none")
+
+a |>
+    filter(str_detect(sheet_name, "Más de 1000")) |>
+    ggplot(aes(date, value, group = delegacion)) +
+    geom_line() +
+    facet_wrap(~delegacion, scales = "free_y")
+```
+
+## Salario
+
+
+```{r}
+#| label: fig-wage
+#| fig-cap: Salario por modalidad
+#| fig-subcap: 
+#|  - "Nacional por modalidad"
+#|  - "Modalidad 10.1 por delegación"
+#| layout-ncol: 1
+
+
+a <- sheets |>
+    filter(
+        series == "Salario",
+        level == "Delegación",
+        disaggregation == "Modalidad"
+    )  |>
+    collect()
+
+
+a |>
+    filter(delegacion == "Nacional") |>
+    ggplot(aes(date, value, color = sheet_name)) +
+    geom_line() +
+    facet_wrap(~sheet_name, scales = "free_y") +
+    theme(legend.position = "none")
+
+a |>
+    filter(str_detect(sheet_name, "10.1")) |>
+    ggplot(aes(date, value, group = delegacion)) +
+    geom_line() +
+    facet_wrap(~delegacion, scales = "free_y")
+```

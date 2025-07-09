@@ -1,0 +1,26 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+pacman::p_load(tidyverse)
+
+
+last_available <- floor_date(today(), "month") - days(1)
+
+```
+
+# Employment data
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Ship time series data on formal employment in Mexico. The data is from the Mexican Social Security Institute (IMSS) and is available from January 1997 to `r last_available |> format("%B %Y")`. The data is available at a monthly frequency and is not seasonally adjusted.

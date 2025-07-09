@@ -6,3 +6,11 @@
 .quarto
 *duckdb
 \data*
+_keys/
+data/
+*.png
+*_files
+*unused/
+*.docx
+dictionaries/
+*.html
