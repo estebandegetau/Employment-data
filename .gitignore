@@ -5,12 +5,16 @@
 .DS_Store
 .quarto
 *duckdb
-\data*
 _keys/
+*.xlsx
+*.feather
+#data/raw/
 data/
 *.png
+*.RData
 *_files
 *unused/
 *.docx
 dictionaries/
 *.html
+*.toml

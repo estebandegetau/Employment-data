@@ -1,0 +1,42 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+asegurados_mod|stem|0a5b3c03c898db51|8f5270756395c62b|81896a411678fca0|-436305327||t20279.722093863s||3841|rds|local|vector|||0.05||Can't select columns that don't exist. ✖ Column `mod` doesn't exist.
+sheets_meged|stem|d3cbcb36ef5c7b36|308699c5948ce6d4|c954c9b2ff112d3e|-1765710634||t20290.8252485296s|s17125b|17125|rds|local|vector|||22.12||
+compute_asegurados_mod|function|6fed7c1039956bdd|||||||||||||||
+reformat_summarised_data|function|254dc6c4732924ed|||||||||||||||
+merge_series|function|b861e4195c3cf567|||||||||||||||
+fix_dates|object|1f1c4fd574fda4b5|||||||||||||||
+books|object|b9865d92b8ec0714|||||||||||||||
+catalogue|object|4945b063bac117db|||||||||||||||
+sheets_raw|object|48794c8f308ce010|||||||||||||||
+series|object|71d9ea8d4ab8cd8f|||||||||||||||
+books_indexed|object|8ee34e507798a3ba|||||||||||||||
+f|object|69f4c762d6cee718|||||||||||||||
+sheets|object|e6df0598e9b91bf1|||||||||||||||
+dirs|object|c8d6dfc5277993ea|||||||||||||||
+sheets_clean|object|e6df0598e9b91bf1|||||||||||||||
+delegaciones_dictionary|function|9105774a68154bb6|||||||||||||||
+sheets_data|stem|8659cda55eeb2f15|13842736156e3ea7|6bad13f45ff79596|767037995||t20305.7087766054s|s94589154b|94589154|feather|local|vector|||30.63|There were 20 warnings in `mutate()`. The first warning was: ℹ In argument: `data = map2(path, position, read_sheet)`. Caused by warning: ! NAs introduced by coercion ℹ Run dplyr::last_dplyr_warnings() to see the 19 remaining warnings.|
+historic_sheets|object|24db20e1d5785284|||||||||||||||
+saved_sheets_data|stem|5b51ac67c60457fe|02f0c984edc2b3f5|277a55f5c4a9ad73|-1967446116||t20349.7758379838s|s51b|51|rds|local|vector|||1.77||
+path|object|78d38851163e9daf
+dictionary_path|stem|1f1e0fd8f70e1af5|42ffd4a358e8ce74|2c530c1562a7fbd1|625316163|C:/Users/esteban.degetau/OneDrive - imssmx/Documents/IMSS/Employment data/data/dictionary.xlsx|t20290.8714756587s|s10989b|10989|file|local|vector|||0.66||
+raw_data_path|stem|bbea3a07e2a45990|a8f17cafee9d73ff|2c530c1562a7fbd1|1736133093|C:/Users/esteban.degetau/OneDrive - imssmx/Documents/IMSS/Employment data/data/raw|t20343.8089583333s|s277642642b|277642642|file|local|vector|||0||
+dictionary|stem|853c4cad394e91e9|812ec772e28c864b|4f704460c551c225|386357845||t20291.6211778339s|s1407b|1407|rds|local|vector|||0.15|There was 1 warning in `mutate()`. ℹ In argument: `sheet_name_code = case_when(...)`. Caused by warning: ! NAs introduced by coercion|
+historical_sheets_data|stem|9c752cb15f34a793|13842736156e3ea7|fdea55ae99720b7e|-1938270163||t20349.7841088625s|s95050970b|95050970|feather|local|vector|||34.53|There were 20 warnings in `mutate()`. The first warning was: ℹ In argument: `data = map2(path, position, read_sheet)`. Caused by warning: ! NAs introduced by coercion ℹ Run `dplyr::last_dplyr_warnings()` to see the 19 remaining warnings.|
+fresh_data_cleaned|stem|f2ef41e14fde884d|3e5c20b48a79255c|fa078957cefb8ab1|548771348||t20354.8565026857s|s207936b|207936|rds|local|vector|||0.11||
+new_sheets|stem|ae8e463e909d37a7|36818a94b68b7b4d|4d611fff9b686ca2|-1480659717||t20354.8565093253s|s44782b|44782|rds|local|vector|||0.5||
+.Random.seed|object|30739895c3c36095
+read_delegaciones_dictionary|function|9105774a68154bb6
+pull_poistions|function|989897cf6f234a88
+read_sheet|function|e913c57e78378502
+content_col|function|070954db142bff03
+save_updated_sheets|function|455b2a5ad65aa385
+clean_fresh_data|function|84bb253b53f4064b
+update_sheets|function|4136df5f8d4c78a6
+pull_fresh_data|function|a765bf077d7b54ee
+make_new_sheets|function|af539b2201b9d4fc
+read_content|function|31c959d026f16756
+read_sheets|function|5a280f8f655d5eb4
+current_month|stem|b309a8f83c6699cc|30ba25240d4c7e6a|2c530c1562a7fbd1|1733484960||t20354.8673751331s|s81b|81|rds|local|vector|||0.31||
+fresh_data|stem|bee772a20368b281|2856981bf9888192|38b324ce8a855ce0|-245322136||t20354.8673876186s|s203269b|203269|rds|local|vector|||1.01||
+updated_sheets|stem|792629e0074dfa35|69e978d4752f0af4|e741a109a6f03b51|346534713||t20349.7757535971s||10424933|rds|local|vector|||0.67|no non-missing arguments to max; returning -Inf|last_month_in_old + months(1) == month_to_update is not TRUE
